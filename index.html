@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct child selector > </title>
+    <style>
+       /*
+       syntex
+       parent > child{
+    
+       }
+      */
+       .parent{
+        /*state 1*/
+        width: 400px;
+        height:400px;
+        background:maroon;
+        transition: background  5s;
+        display:inline-block
+       }
+
+        .parent:hover{
+            /*state 2*/
+            background:aqua;
+        } 
+
+
+       .parent > .child{
+        /*state 1*/
+        width:200px;
+        height:200px;
+        background:yellow;
+        transition:all 5s;
+        
+       }
+       
+       .parent > .child:hover{
+        /*state 2*/
+        background:blue;
+    
+       }
+       
+       
+       [data-parent="parent"]{
+        width:500px;
+        height: 400px;
+        background: blue;
+        display:inline-block;
+       }
+
+       [data-parent="parent"] > [data-child="child"]{
+        /*state 1*/
+        width:100px;
+        height:100px;
+        background: silver;
+        display:inline-block;
+         border-radius: 100px;
+        transition:all 3s linear 0.0s;
+        transform: translate(0px,0px);
+       }
+        
+       [data-parent="parent"]:hover > [data-child="child"]{
+        /*state 2*/
+
+        background: orange;
+        transform: translate(0px,300px);
+       }
+       .c2{
+        transition: all 3s linear 4s !important;
+
+       }
+       .c3{
+        transition: all 3s linear 2.5s !important;
+       }
+       .c4{
+        transition:all 3s linear 4.5s !important;
+       }
+
+       
+
+
+    </style>
+
+
+
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+
+
+    </div>
+    <div data-parent="parent">
+        <div data-child="child"></div>
+        <div data-child="child" class="c2"></div>
+        <div data-child="child" class="c3"></div>
+        <div data-child="child" class="c4"></div>
+
+
+    </div>
+    
+</body>
+</html>
